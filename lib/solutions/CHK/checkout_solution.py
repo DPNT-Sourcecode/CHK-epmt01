@@ -89,22 +89,21 @@ def valid(input) -> bool:
     return valid
 
 def clean(skus: str) -> list:
-    """Cleans the sku list in the following ways.
+    """Cleans the sku input string in the following ways.
     
-        1. Removes blank spaces and comma sperators.
-        2. Removes all skus in the dictionary that do not appear in the table."""
+        1. Places into a list and removes blank spaces and comma sperators.
+        2. Removes all skus in the dictionary that do not appear in the product 
+        table.
+    """
 
     sku_list = skus.replace(",", "").replace(" ", "")
     sku_list = [item.strip().upper() for item in sku_list]
 
     product_key_list = list(PRODUCTS.keys())
-
-    breakpoint()
+    cleaned_sku_list = []
 
     for sku in sku_list:
-        if sku not in product_key_list:
-            pass
+        if sku in product_key_list:
+            cleaned_sku_list.append(sku)
 
-
-
-checkout("AxA")
+    return (cleaned_sku_list)
