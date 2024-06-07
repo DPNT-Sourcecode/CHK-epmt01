@@ -52,8 +52,7 @@ def special_items(skus: str) -> dict[str: int]:
     sku_list = [item.strip() for item in sku_list]
     counted_sku_dict = Counter(sku_list)
 
-    if counted_sku_dict:
-        breakpoint()
+    if sku_list[0] != '':
         for sku in counted_sku_dict:
             product = PRODUCTS.get(sku)
 
@@ -68,6 +67,7 @@ def special_items(skus: str) -> dict[str: int]:
 
 
 print(checkout(skus=''))
+
 
 
 
