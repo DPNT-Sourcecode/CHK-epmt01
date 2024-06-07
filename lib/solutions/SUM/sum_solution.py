@@ -1,3 +1,4 @@
 # noinspection PyShadowingBuiltins,PyUnusedLocal
-def compute(x, y):
-    raise NotImplementedError()
+def sum(int_a, int_b) -> int:
+    """Returns the sum of 2 integer arguments, int_a and int_b."""
+    return (int_a + int_b)
