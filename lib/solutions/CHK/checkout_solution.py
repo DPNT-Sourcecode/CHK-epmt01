@@ -104,5 +104,3 @@ def clean(skus: str) -> list:
 
 
 print(checkout('A, B, C'))
-
-
