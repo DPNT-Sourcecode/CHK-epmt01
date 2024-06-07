@@ -45,14 +45,15 @@ def special_items(skus: str) -> dict[str: int]:
     
     """
 
-    # sku_list = skus.split(",")
-    # sku_list = [item.strip() for item in sku_list]
+    sku_list = skus.split(",")
+    sku_list = [item.strip() for item in sku_list]
+    counted_sku_dict = Counter(sku_list)
 
-    thing = Counter(skus)
-
-    breakpoint()
+    for sku in counted_sku_dict:
+        breakpoint()
 
 checkout(skus='A, B, C, D, D, D')
+
 
 
 
