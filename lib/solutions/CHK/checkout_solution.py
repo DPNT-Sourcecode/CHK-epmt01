@@ -30,6 +30,3 @@ def checkout(skus: str) -> int:
         if product := PRODUCTS.get(sku):
             value = value + product['price']
     return value
-
-
-
