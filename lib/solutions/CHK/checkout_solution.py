@@ -1,4 +1,4 @@
-
+from collections import Counter
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -45,12 +45,15 @@ def special_items(skus: str) -> dict[str: int]:
     
     """
 
-    sku_list = skus.split(",")
-    sku_list = [item.strip() for item in sku_list]
+    # sku_list = skus.split(",")
+    # sku_list = [item.strip() for item in sku_list]
+
+    thing = Counter(skus)
 
     breakpoint()
 
 checkout(skus='A, B, C, D, D, D')
+
 
 
 
