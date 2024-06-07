@@ -25,7 +25,7 @@ PRODUCTS = {
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
     try:
-        if isinstance(skus, str):
+        if valid(skus):
             basket = special_items(skus=skus)
             value = basket['value']
             skus = dict(basket['simplified_basket'])
@@ -72,4 +72,19 @@ def special_items(skus: str) -> dict[str: int]:
         "simplified_basket": counted_sku_dict,
         "value": value
     }
+
+def valid(input):
+    """Checks for valid inputs."""
+    valid = False
+    valid_charactars = set('abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+
+    breakpoint()
+
+    if isinstance(input, str) and (input for input in valid_charactars):
+        valid = True
+
+    return valid
+
+checkout('-,+')
+
 
