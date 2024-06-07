@@ -27,6 +27,7 @@ def checkout(skus: str) -> int:
     try:
         if valid(skus):
             skus = clean(skus=skus)
+            breakpoint()
             basket = special_items(skus=skus)
             value = basket['value']
             skus = dict(basket['simplified_basket'])
@@ -42,23 +43,21 @@ def checkout(skus: str) -> int:
        raise NotImplementedError()
 
 
-def special_items(skus: str) -> dict[str: int]:
+def special_items(sku_list: list) -> dict[str: int]:
     """Deals with the special items in a basket.
 
     This removes all special items from the dictionary and exchanges 
     them for a basket value.
     
     Args:
-        skus: string of skus in basket.
+        skus: list of skus in basket.
 
     Returns:
         A dict containing a simplified basket with all special items 
         accounted for and a value of the special items.
     """
     value = 0
-    sku_list = clean(skus=skus)
     counted_sku_dict = Counter(sku_list)
-
 
     if sku_list[0] != '':
         for sku in counted_sku_dict:
@@ -110,3 +109,4 @@ def clean(skus: str) -> list:
 
 
 checkout('A, B, C')
+
