@@ -52,14 +52,14 @@ def special_items(skus: str) -> dict[str: int]:
     sku_list = [item.strip() for item in sku_list]
     counted_sku_dict = Counter(sku_list)
 
-    breakpoint()
+    if counted_sku_dict:
+        breakpoint()
+        for sku in counted_sku_dict:
+            product = PRODUCTS.get(sku)
 
-    for sku in counted_sku_dict:
-        product = PRODUCTS.get(sku)
-
-        if product['special'] != None and (counted_sku_dict[sku] >= product['special'][0]):
-            value += product['special'][1] * int(counted_sku_dict[sku] / product['special'][0])
-            counted_sku_dict[sku] = (counted_sku_dict[sku] % product['special'][0])
+            if product['special'] != None and (counted_sku_dict[sku] >= product['special'][0]):
+                value += product['special'][1] * int(counted_sku_dict[sku] / product['special'][0])
+                counted_sku_dict[sku] = (counted_sku_dict[sku] % product['special'][0])
 
     return {
         "simplified_basket": counted_sku_dict,
@@ -68,6 +68,7 @@ def special_items(skus: str) -> dict[str: int]:
 
 
 print(checkout(skus=''))
+
 
 
 
