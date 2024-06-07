@@ -26,7 +26,9 @@ def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
     value = 0
 
-    skus, value = special_items(skus=skus)
+    basket = special_items(skus=skus)
+
+    breakpoint()
 
     
     for sku in skus:
@@ -42,7 +44,6 @@ def special_items(skus: str) -> dict[str: int]:
     Returns:
         A dict containing a simplified basket with all special items 
         accounted for and a value of the special items.
-    
     """
     value = 0
 
@@ -57,9 +58,13 @@ def special_items(skus: str) -> dict[str: int]:
             value += product['special'][1] * int(counted_sku_dict[sku] / product['special'][0])
             counted_sku_dict[sku] = (counted_sku_dict[sku] % product['special'][0])
 
-    breakpoint()
+    return {
+        "simplified_basket": counted_sku_dict,
+        "value": value
+    }
 
 
 checkout(skus='A, A, A, A, A, A, B, C, D, D, D')
+
 
 
