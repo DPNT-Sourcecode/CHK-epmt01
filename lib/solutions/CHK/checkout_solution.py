@@ -24,23 +24,18 @@ PRODUCTS = {
 
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
-    try:
-        if valid(skus):
-            skus = clean(skus=skus)
-            breakpoint()
-            basket = special_items(skus=skus)
-            value = basket['value']
-            skus = dict(basket['simplified_basket'])
+    if valid(skus):
+        skus = clean(skus=skus)
+        basket = special_items(sku_list=skus)
+        value = basket['value']
+        skus = dict(basket['simplified_basket'])
 
-            for sku in skus:
-                if product := PRODUCTS.get(sku):
-                    value += product['price'] * skus[sku]
-        else:
-            value = -1
-        return value
-
-    except Exception:
-       raise NotImplementedError()
+        for sku in skus:
+            if product := PRODUCTS.get(sku):
+                value += product['price'] * skus[sku]
+    else:
+        value = -1
+    return value
 
 
 def special_items(sku_list: list) -> dict[str: int]:
@@ -108,5 +103,5 @@ def clean(skus: str) -> list:
     return (cleaned_sku_list)
 
 
-checkout('A, B, C')
+print(checkout('A, B, C'))
 
