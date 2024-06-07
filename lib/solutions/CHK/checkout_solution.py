@@ -56,9 +56,7 @@ def special_items(skus: str) -> dict[str: int]:
         accounted for and a value of the special items.
     """
     value = 0
-
-    sku_list = skus.replace(",", "").replace(" ", "")
-    sku_list = [item.strip().upper() for item in sku_list]
+    sku_list = clean(skus=skus)
     counted_sku_dict = Counter(sku_list)
 
 
@@ -90,8 +88,11 @@ def valid(input) -> bool:
 
     return valid
 
-def clean() -> str:
+def clean(skus: str) -> list:
     """Removes all skus in the dictionary that do not appear in the table."""
+
+    sku_list = skus.replace(",", "").replace(" ", "")
+    sku_list = [item.strip().upper() for item in sku_list]
 
 
 checkout("AxA")
