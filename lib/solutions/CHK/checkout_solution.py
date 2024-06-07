@@ -93,7 +93,7 @@ def clean(skus: str) -> list:
     """
 
     sku_string = skus.replace(",", "").replace(" ", "")
-    sku_list = [item.strip().upper() for item in sku_string]
+    sku_list = [item.strip() for item in sku_string]
 
     product_key_list = list(PRODUCTS.keys())
     cleaned_sku_list = []
