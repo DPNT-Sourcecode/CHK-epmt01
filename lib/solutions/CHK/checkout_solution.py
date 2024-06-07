@@ -44,15 +44,24 @@ def special_items(skus: str) -> dict[str: int]:
         accounted for and a value of the special items.
     
     """
+    value = 0
 
     sku_list = skus.split(",")
     sku_list = [item.strip() for item in sku_list]
     counted_sku_dict = Counter(sku_list)
 
     for sku in counted_sku_dict:
-        breakpoint()
+        product = PRODUCTS.get(sku)
 
-checkout(skus='A, B, C, D, D, D')
+        if (counted_sku_dict[sku] >= product['special'][0]) or product['special'] != None:
+            value += product['special'][1]
+            counted_sku_dict[sku] -= product['special'][0]
+
+    breakpoint()
+
+
+checkout(skus='A, A, A, A, A, B, C, D, D, D')
+
 
 
 
