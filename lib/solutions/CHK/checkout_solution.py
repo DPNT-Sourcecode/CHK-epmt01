@@ -27,14 +27,9 @@ def checkout(skus: str) -> int:
     value = 0
 
     for sku in skus:
-        product = PRODUCTS.get(sku)
-        breakpoint()
-
-        
-
-
+        if product := PRODUCTS.get(sku):
+            value = value + product['price']
     return value
 
-checkout(skus='A, B, C')
 
 
