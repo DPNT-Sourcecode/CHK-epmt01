@@ -54,17 +54,12 @@ def special_items(skus: str) -> dict[str: int]:
         product = PRODUCTS.get(sku)
 
         if product['special'] != None and (counted_sku_dict[sku] >= product['special'][0]):
-            value += product['special'][1]
-            counted_sku_dict[sku] -= product['special'][0]
+            value += product['special'][1] * int(counted_sku_dict[sku] / product['special'][0])
+            counted_sku_dict[sku] = (counted_sku_dict[sku] % product['special'][0])
 
     breakpoint()
 
 
 checkout(skus='A, A, A, A, A, A, B, C, D, D, D')
-
-
-
-
-
 
 
