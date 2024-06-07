@@ -96,8 +96,8 @@ def clean(skus: str) -> list:
         table.
     """
 
-    sku_list = skus.replace(",", "").replace(" ", "")
-    sku_list = [item.strip().upper() for item in sku_list]
+    sku_string = skus.replace(",", "").replace(" ", "")
+    sku_list = [item.strip().upper() for item in sku_string]
 
     product_key_list = list(PRODUCTS.keys())
     cleaned_sku_list = []
@@ -107,3 +107,6 @@ def clean(skus: str) -> list:
             cleaned_sku_list.append(sku)
 
     return (cleaned_sku_list)
+
+
+checkout('A, B, C')
