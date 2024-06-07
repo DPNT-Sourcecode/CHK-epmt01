@@ -74,6 +74,9 @@ def valid(input) -> bool:
 
     if isinstance(input, str):
         for char in input:
+            
+            
+            breakpoint()
             if char in valid_charactars:
                 valid = True
             else:
@@ -103,4 +106,4 @@ def clean(skus: str) -> list:
     return (cleaned_sku_list)
 
 
-print(checkout('A, B, C'))
+print(checkout(''))
