@@ -24,9 +24,7 @@ PRODUCTS = {
 
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
-    breakpoint()
-    if skus is type(str):
-        
+    if isinstance(skus, str):
         basket = special_items(skus=skus)
         value = basket['value']
         skus = dict(basket['simplified_basket'])
@@ -69,6 +67,3 @@ def special_items(skus: str) -> dict[str: int]:
         "simplified_basket": counted_sku_dict,
         "value": value
     }
-
-
-checkout(skus=190)
