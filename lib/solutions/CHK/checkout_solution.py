@@ -33,6 +33,8 @@ def checkout(skus: str) -> int:
         for sku in skus:
             if product := PRODUCTS.get(sku):
                 value += product['price'] * skus[sku]
+    elif skus == '':
+        value = 0
     else:
         value = -1
     return value
@@ -74,9 +76,6 @@ def valid(input) -> bool:
 
     if isinstance(input, str):
         for char in input:
-            
-            
-            breakpoint()
             if char in valid_charactars:
                 valid = True
             else:
@@ -106,4 +105,4 @@ def clean(skus: str) -> list:
     return (cleaned_sku_list)
 
 
-print(checkout(''))
+print(checkout("a"))
