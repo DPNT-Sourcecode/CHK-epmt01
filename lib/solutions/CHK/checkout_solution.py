@@ -24,17 +24,22 @@ PRODUCTS = {
 
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
-    if isinstance(skus, str):
-        basket = special_items(skus=skus)
-        value = basket['value']
-        skus = dict(basket['simplified_basket'])
+    try:
+        if isinstance(skus, str):
+            basket = special_items(skus=skus)
+            value = basket['value']
+            skus = dict(basket['simplified_basket'])
 
-        for sku in skus:
-            if product := PRODUCTS.get(sku):
-                value += product['price'] * skus[sku]
-    else:
-        value = -1
-    return value
+            for sku in skus:
+                if product := PRODUCTS.get(sku):
+                    value += product['price'] * skus[sku]
+        else:
+            value = -1
+        return value
+
+    except Exception:
+       raise NotImplementedError()
+
 
 def special_items(skus: str) -> dict[str: int]:
     """Deals with the special items in a basket.
@@ -67,3 +72,4 @@ def special_items(skus: str) -> dict[str: int]:
         "simplified_basket": counted_sku_dict,
         "value": value
     }
+
