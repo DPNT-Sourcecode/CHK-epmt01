@@ -12,6 +12,3 @@ class TestSum():
     )
     def test_sum(self, int_1, int_2, expected_result):
         assert sum_solution.compute(int_1, int_2) == expected_result
-
-
-
