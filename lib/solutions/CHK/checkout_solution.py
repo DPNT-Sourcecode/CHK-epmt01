@@ -24,13 +24,16 @@ PRODUCTS = {
 
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
-    basket = special_items(skus=skus)
-    value = basket['value']
-    skus = dict(basket['simplified_basket'])
+    if skus is not type(str):
+        basket = special_items(skus=skus)
+        value = basket['value']
+        skus = dict(basket['simplified_basket'])
 
-    for sku in skus:
-        if product := PRODUCTS.get(sku):
-            value += product['price'] * skus[sku]
+        for sku in skus:
+            if product := PRODUCTS.get(sku):
+                value += product['price'] * skus[sku]
+    else:
+        value = -1
     return value
 
 def special_items(skus: str) -> dict[str: int]:
@@ -67,12 +70,5 @@ def special_items(skus: str) -> dict[str: int]:
 
 
 print(checkout(skus=''))
-
-
-
-
-
-
-
 
 
