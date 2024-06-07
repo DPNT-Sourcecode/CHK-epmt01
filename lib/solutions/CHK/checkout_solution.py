@@ -25,6 +25,7 @@ PRODUCTS = {
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
     try:
+        breakpoint()
         if valid(skus):
             basket = special_items(skus=skus)
             value = basket['value']
@@ -89,8 +90,4 @@ def valid(input):
 
     return valid
 
-
-
-
-
-
+checkout("AxA")
