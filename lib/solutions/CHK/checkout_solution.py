@@ -70,7 +70,7 @@ def special_items(sku_list: list) -> dict[str: int]:
 def valid(input) -> bool:
     """Checks for valid inputs."""
     valid = False
-    valid_charactars = set('abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
+    valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
 
     if isinstance(input, str):
         for char in input:
@@ -104,4 +104,5 @@ def clean(skus: str) -> list:
 
 
 print(checkout('A, B, C'))
+
 

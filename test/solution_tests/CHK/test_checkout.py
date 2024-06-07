@@ -8,15 +8,17 @@ class TestCheckout():
             ("A, A, A, A, A, A, B, C, D", 325),
             ("A, B, B, B, C, D", 160),
             ("D, D, D, D, D", 75),
-            ("", -1),
-            ("a", 50),
+            ("", 0),
+            ("a", -1),
             ("-", -1),
             ("+", -1),
             (190, -1),
             ("abcd", 115),
             ("AxA", 100),
+            ("ABCa", -1),
         ]
     )
     def test_checkout(self, test_string, expected_result):
         assert checkout_solution.checkout(skus=test_string) == expected_result
+
 
