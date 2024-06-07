@@ -25,8 +25,8 @@ PRODUCTS = {
 def checkout(skus: str) -> int:
     """Returns an integer sum of the skus in the basket."""
     try:
-        breakpoint()
         if valid(skus):
+            skus = clean(skus=skus)
             basket = special_items(skus=skus)
             value = basket['value']
             skus = dict(basket['simplified_basket'])
@@ -75,7 +75,7 @@ def special_items(skus: str) -> dict[str: int]:
         "value": value
     }
 
-def valid(input):
+def valid(input) -> bool:
     """Checks for valid inputs."""
     valid = False
     valid_charactars = set('abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
@@ -89,5 +89,9 @@ def valid(input):
                 break
 
     return valid
+
+def clean() -> str:
+    """Removes all skus in the dictionary that do not appear in the table."""
+
 
 checkout("AxA")
