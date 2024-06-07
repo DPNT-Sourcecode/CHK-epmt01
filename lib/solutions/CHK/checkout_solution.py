@@ -53,14 +53,15 @@ def special_items(skus: str) -> dict[str: int]:
     for sku in counted_sku_dict:
         product = PRODUCTS.get(sku)
 
-        if (counted_sku_dict[sku] >= product['special'][0]) or product['special'] != None:
+        if product['special'] != None and (counted_sku_dict[sku] >= product['special'][0]):
             value += product['special'][1]
             counted_sku_dict[sku] -= product['special'][0]
 
     breakpoint()
 
 
-checkout(skus='A, A, A, A, A, B, C, D, D, D')
+checkout(skus='A, A, A, A, A, A, B, C, D, D, D')
+
 
 
 
