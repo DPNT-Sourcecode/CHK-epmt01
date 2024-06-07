@@ -80,11 +80,12 @@ def valid(input):
 
     breakpoint()
 
-    if isinstance(input, str) and (input for input in valid_charactars):
+    if isinstance(input, str) and all(char in valid_charactars for char in input):
         valid = True
 
     return valid
 
 checkout('-,+')
+
 
 
