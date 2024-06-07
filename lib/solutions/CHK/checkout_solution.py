@@ -19,9 +19,22 @@ PRODUCTS = {
     "D": {
         'price': 15,
         'special': None
-    },
+    }
 }
 
-def checkout(skus):
-    raise NotImplementedError()
+def checkout(skus: str) -> int:
+    """Returns an integer sum of the skus in the basket."""
+    value = 0
+
+    for sku in skus:
+        product = PRODUCTS.get(sku)
+        breakpoint()
+
+        
+
+
+    return value
+
+checkout(skus='A, B, C')
+
 
