@@ -56,6 +56,8 @@ def special_items(skus: str) -> dict[str: int]:
     """
     value = 0
 
+    breakpoint()
+
     sku_list = skus.split(",")
     sku_list = [item.strip().upper() for item in sku_list]
     counted_sku_dict = Counter(sku_list)
@@ -87,6 +89,10 @@ def valid(input):
                 break
 
     return valid
+
+
+checkout(skus="ABCd")
+
 
 
 
