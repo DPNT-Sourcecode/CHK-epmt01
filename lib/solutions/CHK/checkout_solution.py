@@ -52,7 +52,7 @@ def special_items(skus: str) -> dict[str: int]:
     value = 0
 
     sku_list = skus.split(",")
-    sku_list = [item.strip() for item in sku_list]
+    sku_list = [item.strip().upper() for item in sku_list]
     counted_sku_dict = Counter(sku_list)
 
     if sku_list[0] != '':
