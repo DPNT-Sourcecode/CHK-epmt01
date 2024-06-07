@@ -78,14 +78,16 @@ def valid(input):
     valid = False
     valid_charactars = set('abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
-    breakpoint()
-
-    if isinstance(input, str) and all(char in valid_charactars for char in input):
-        valid = True
+    if isinstance(input, str):
+        for char in input:
+            breakpoint()
+            if char in valid_charactars:
+                valid = True
 
     return valid
 
 checkout('-,+')
+
 
 
 
