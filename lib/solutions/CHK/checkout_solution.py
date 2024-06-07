@@ -35,6 +35,9 @@ def checkout(skus: str) -> int:
 
 def special_items(skus: str) -> dict[str: int]:
     """Deals with the special items in a basket.
+
+    This removes all special items from the dictionary and exchanges 
+    them for a basket value.
     
     Args:
         skus: string of skus in basket.
@@ -63,6 +66,7 @@ def special_items(skus: str) -> dict[str: int]:
 
 
 print(checkout(skus='A, A, A, A, A, A, B, C, D, D, D'))
+
 
 
 
