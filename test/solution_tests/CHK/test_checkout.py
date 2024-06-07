@@ -10,10 +10,11 @@ class TestCheckout():
             ("D, D, D, D, D", 75),
             ("", 0),
             ("a", 50),
-            ("-", 50),
-            ("+", 50),
+            ("-", -1),
+            ("+", -1),
             (190, -1)
         ]
     )
     def test_checkout(self, test_string, expected_result):
         assert checkout_solution.checkout(skus=test_string) == expected_result
+

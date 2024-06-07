@@ -80,13 +80,14 @@ def valid(input):
 
     if isinstance(input, str):
         for char in input:
-            breakpoint()
             if char in valid_charactars:
                 valid = True
+            else:
+                valid = False
+                break
 
     return valid
 
-checkout('-,+')
 
 
 
