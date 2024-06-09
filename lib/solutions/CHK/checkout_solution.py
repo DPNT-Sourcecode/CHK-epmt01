@@ -73,18 +73,16 @@ def special_items(sku_list: list) -> dict[str: int]:
 def clean(skus: str) -> list:
     """Cleans the sku input string in the following ways.
     
-        1. Checks input is in string format.
+        1. Checks the input is of string format.
         2. Removes invalid charactars.
         3. Places sku string into a list and removes blank spaces and comma sperators.
         4. Removes all skus in the dictionary that do not appear in the product 
         table.
     """
-
-    valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
-
-    temp_sku_string = ""
-
     if isinstance(skus, str):
+        valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
+        temp_sku_string = ""
+
         for char in skus:
                 if char in valid_charactars:
                     temp_sku_string += char
@@ -105,8 +103,3 @@ def clean(skus: str) -> list:
         cleaned_sku_list = []
 
     return (cleaned_sku_list)
-
-
-
-
-
