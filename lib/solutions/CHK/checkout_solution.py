@@ -30,12 +30,12 @@ def checkout(skus: str) -> int:
     if len(sku_list) != 0:
         basket = special_items(sku_list=sku_list)
         value = basket['value']
-        skus = dict(basket['simplified_basket'])
+        sku_dict = dict(basket['simplified_basket'])
 
-        for sku in skus:
+        for sku in sku_dict:
             if product := PRODUCTS.get(sku):
-                value += product['price'] * skus[sku]
-    elif skus != "":
+                value += product['price'] * sku_dict[sku]
+    elif skus == "":
         value = 0
     else:
         value = -1
@@ -105,9 +105,6 @@ def clean(skus: str) -> list:
         cleaned_sku_list = []
 
     return (cleaned_sku_list)
-
-
-print(checkout("ABCa"))
 
 
 
