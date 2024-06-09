@@ -101,6 +101,8 @@ def clean(skus: str) -> list:
         for char in skus:
                 if char in valid_charactars:
                     temp_sku_string += char
+
+        breakpoint()
                 
         skus = temp_sku_string
 
@@ -121,5 +123,6 @@ def clean(skus: str) -> list:
 
 
 print(checkout("a"))
+
 
 
