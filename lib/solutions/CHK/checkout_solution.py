@@ -88,9 +88,21 @@ def clean(skus: str) -> list:
     """Cleans the sku input string in the following ways.
     
         1. Places into a list and removes blank spaces and comma sperators.
-        2. Removes all skus in the dictionary that do not appear in the product 
+        2. Removes unwanted charactars.
+        3. Removes all skus in the dictionary that do not appear in the product 
         table.
     """
+
+    valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
+
+    temp_sku_string = ""
+
+    for char in skus:
+            if char in valid_charactars:
+                temp_sku_string += char
+            
+    skus = temp_sku_string
+
 
     sku_string = skus.replace(",", "").replace(" ", "")
     sku_list = [item.strip() for item in sku_string]
@@ -101,6 +113,8 @@ def clean(skus: str) -> list:
     for sku in sku_list:
         if sku in product_key_list:
             cleaned_sku_list.append(sku)
+
+    
 
     return (cleaned_sku_list)
 
