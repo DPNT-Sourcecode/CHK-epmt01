@@ -69,21 +69,6 @@ def special_items(sku_list: list) -> dict[str: int]:
         "value": value
     }
 
-def valid(input) -> bool:
-    """Checks for valid inputs."""
-    valid = False
-    valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
-
-    if isinstance(input, str):
-        for char in input:
-            if char in valid_charactars:
-                valid = True
-            else:
-                valid = False
-                break
-
-    return valid
-
 def clean(skus: str) -> list:
     """Cleans the sku input string in the following ways.
     
@@ -98,13 +83,11 @@ def clean(skus: str) -> list:
 
     temp_sku_string = ""
 
-    if isinstance(input, str):
+    if isinstance(skus, str):
         for char in skus:
                 if char in valid_charactars:
                     temp_sku_string += char
 
-        breakpoint()
-                
         skus = temp_sku_string
 
         sku_string = skus.replace(",", "").replace(" ", "")
@@ -123,7 +106,8 @@ def clean(skus: str) -> list:
     return (cleaned_sku_list)
 
 
-print(checkout("AxA"))
+print(checkout("ABCa"))
+
 
 
 
