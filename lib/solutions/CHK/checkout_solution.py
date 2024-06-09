@@ -87,9 +87,10 @@ def valid(input) -> bool:
 def clean(skus: str) -> list:
     """Cleans the sku input string in the following ways.
     
-        1. Places into a list and removes blank spaces and comma sperators.
-        2. Removes unwanted charactars.
-        3. Removes all skus in the dictionary that do not appear in the product 
+        1. Checks input is in string format.
+        2. Removes invalid charactars.
+        3. Places sku string into a list and removes blank spaces and comma sperators.
+        4. Removes all skus in the dictionary that do not appear in the product 
         table.
     """
 
@@ -122,7 +123,7 @@ def clean(skus: str) -> list:
     return (cleaned_sku_list)
 
 
-print(checkout("a"))
+print(checkout("AxA"))
 
 
 
