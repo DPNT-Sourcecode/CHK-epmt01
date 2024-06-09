@@ -79,15 +79,13 @@ def clean(skus: str) -> list:
         4. Removes all skus in the dictionary that do not appear in the product 
         table.
     """
+    valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
+    
     if isinstance(skus, str):
-        valid_charactars = set(',ABCDEFGHIJKLMNOPQRSTUVWXYZ ')
-        temp_sku_string = ""
-
         for char in skus:
-                if char in valid_charactars:
-                    temp_sku_string += char
-
-        skus = temp_sku_string
+            if char not in valid_charactars:
+                cleaned_sku_list = []
+                return cleaned_sku_list
 
         sku_string = skus.replace(",", "").replace(" ", "")
         sku_list = [item.strip() for item in sku_string]
@@ -103,3 +101,6 @@ def clean(skus: str) -> list:
         cleaned_sku_list = []
 
     return (cleaned_sku_list)
+
+
+print(checkout("AA"))
