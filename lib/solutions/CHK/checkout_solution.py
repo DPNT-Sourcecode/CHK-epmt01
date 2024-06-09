@@ -27,7 +27,7 @@ def checkout(skus: str) -> int:
     
     skus = clean(skus=skus)
 
-    if skus != "":
+    if len(skus) != 0:
         basket = special_items(sku_list=skus)
         value = basket['value']
         skus = dict(basket['simplified_basket'])
@@ -97,27 +97,29 @@ def clean(skus: str) -> list:
 
     temp_sku_string = ""
 
-    for char in skus:
-            if char in valid_charactars:
-                temp_sku_string += char
-            
-    skus = temp_sku_string
+    if isinstance(input, str):
+        for char in skus:
+                if char in valid_charactars:
+                    temp_sku_string += char
+                
+        skus = temp_sku_string
 
+        sku_string = skus.replace(",", "").replace(" ", "")
+        sku_list = [item.strip() for item in sku_string]
 
-    sku_string = skus.replace(",", "").replace(" ", "")
-    sku_list = [item.strip() for item in sku_string]
+        product_key_list = list(PRODUCTS.keys())
+        cleaned_sku_list = []
 
-    product_key_list = list(PRODUCTS.keys())
-    cleaned_sku_list = []
+        for sku in sku_list:
+            if sku in product_key_list:
+                cleaned_sku_list.append(sku)
 
-    for sku in sku_list:
-        if sku in product_key_list:
-            cleaned_sku_list.append(sku)
-
-    
+    else:
+        cleaned_sku_list = []
 
     return (cleaned_sku_list)
 
 
 print(checkout("a"))
+
 
